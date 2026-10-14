@@ -1,3 +1,7 @@
+#267006111085
+#Youhan Nelja Haezer
+#Kelas A
+
 print("===== Sistem Perhitungan Tarif Parkir =====")
 kendaraan = input("Masukkan jenis kendaraan (mobil/motor): ")
 durasi = int(input("Masukkan durasi parkir (jam): "))
