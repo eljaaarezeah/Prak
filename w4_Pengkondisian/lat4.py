@@ -4,9 +4,9 @@
 
 print("=== Pengecekan Tiket Roller Coaster ===")
 umur = int(input("Masukkan umur Anda (Tahun): "))
-tinggi = int(input("Masukkan tinggi badan Anda (cm): "))
 harga = 50000
 if umur >= 12:
+    tinggi = int(input("Masukkan tinggi badan Anda (cm): "))
     if tinggi >= 150:
         print("\nSyarat terpenuhi, Anda boleh naik.")
         member = input("Apakah Anda member? (y/t): ")
