@@ -14,7 +14,7 @@ if umur >= 12:
             harga -= 10000
             print("Anda mendapatkan diskon!")
             print("Total harga tiket: Rp", harga)
-            uang = float(input("Masukkan jumlah uang Anda: Rp"))
+            uang = int(input("Masukkan jumlah uang Anda: Rp"))
         if uang == harga:
             print("Transaksi berhasil! Uang Anda pas.")
         elif uang >= harga:
