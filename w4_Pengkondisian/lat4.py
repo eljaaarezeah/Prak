@@ -24,6 +24,6 @@ if umur >= 12:
             kekurangan = harga - uang
             print("Gagal! Uang Anda kurang! Kekurangan: Rp", kekurangan)
     else:
-        print("Maaf, tinggi badan Anda belum mencukupi (Minimal 150 cm).")
+        print("Maaf Anda tidak boleh masuk, tinggi badan Anda belum mencukupi (Minimal 150 cm).")
 else:
     print("Maaf, wahana ini khusus untuk usia 12 tahun ke atas")
