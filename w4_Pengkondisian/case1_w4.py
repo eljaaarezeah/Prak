@@ -5,7 +5,7 @@
 print("===== Sistem Pendaftaran Member Gym =====")
 nama = input("Masukkan Nama Anda: ")
 umur = int(input("Masukkan Umur Anda (Tahun): "))
-if umur > 12:
+if umur >= 12:
     kelas = input("Masukkan Pilihan Kelas (yoga / boxing / zumba): ")
     if kelas == "yoga":
         tarif_kls = 300000
