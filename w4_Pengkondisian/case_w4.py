@@ -7,17 +7,18 @@ kendaraan = input("Masukkan jenis kendaraan (mobil/motor): ")
 durasi = int(input("Masukkan durasi parkir (jam): "))
 if durasi > 0:
     if kendaraan == "mobil":
-        tarif = 5000
+        tarif = 10000
         if durasi > 1:
             tarif_prog = 3000 * (durasi - 1)
         tarif_baru = tarif + tarif_prog
     elif kendaraan == "motor":
-        tarif = 3000
+        tarif = 5000
         if durasi > 1:
             tarif_prog = 1000 * (durasi - 1)
         tarif_baru = tarif + tarif_prog
     else:
-        print("Jenis kendaraan tidak dikenali.")
+        print("Info: Kendaraan tidak dikenali, otomatis masuk ke tarif Sepeda/Lainnya.")
+        kendaraan = "Sepeda/Lainnya"
         tarif = 2000
         if durasi > 1:
             tarif_prog = 1000 * (durasi - 1)
@@ -31,6 +32,7 @@ if durasi > 0:
         tarif_denda = 0
 
     tarif_akhir = tarif_baru + tarif_denda
+    
 
     print("\n===== Rincian Tarif Parkir =====")
     print("Jenis Kendaraan:", kendaraan)
@@ -40,5 +42,5 @@ if durasi > 0:
     print("------------------------------------- +")
     print("Total Tarif Parkir: Rp", tarif_akhir)
 else:
-    print("Error: Durasi parkir harus lebih dari 0 jam.")
+    print("Error: Durasi parkir tidak valid.")
     exit()
