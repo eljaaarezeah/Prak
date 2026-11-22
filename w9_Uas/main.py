@@ -44,10 +44,12 @@ def cek_saldo(index):
         print(f"Bunga 0.5% : Rp {bunga}")
 
         konf_kembali = input("Kembali ke menu? (y/n): ")
-        
+                
         if konf_kembali.lower() == "y":
             break
-        if konf_kembali.lower() != "y" and konf_kembali.lower() != "n":
+        elif konf_kembali.lower() == "n":
+            continue
+        else:
             print("Masukkan tidak valid.")
             continue
 
@@ -57,11 +59,19 @@ def tarik_tunai(index):
 
         if nominal <= 0:
             print("Nominal harus lebih dari 0.")
-            break
+            continue
 
         if nominal > data_nasabah[index]["saldo"]:
             print("Saldo tidak mencukupi.")
-            break
+            konf_kembali = input("Kembali ke menu? (y/n): ")
+                    
+            if konf_kembali.lower() == "y":
+                break
+            elif konf_kembali.lower() == "n":
+                continue
+            else:
+                print("Masukkan tidak valid.")
+                continue
 
         data_nasabah[index]["saldo"] -= nominal
         no_ref = buat_no_ref()
@@ -76,7 +86,9 @@ def tarik_tunai(index):
                 
         if konf_kembali.lower() == "y":
             break
-        if konf_kembali.lower() != "y" and konf_kembali.lower() != "n":
+        elif konf_kembali.lower() == "n":
+            continue
+        else:
             print("Masukkan tidak valid.")
             continue
 
@@ -86,7 +98,7 @@ def setor_tunai(index):
 
         if nominal <= 0:
             print("Nominal harus lebih dari 0.")
-            break
+            continue
 
         data_nasabah[index]["saldo"] += nominal
         no_ref = buat_no_ref()
@@ -96,12 +108,14 @@ def setor_tunai(index):
         print(f"Nomor referensi: YNH{no_ref}")
         print(f"Waktu transaksi: {waktu_transaksi()}")
         print(f"Saldo sekarang: Rp {data_nasabah[index]['saldo']}")
-
-        konf_kembali = input("Kembali ke menu? (y/n): ")
                         
+        konf_kembali = input("Kembali ke menu? (y/n): ")
+        
         if konf_kembali.lower() == "y":
             break
-        if konf_kembali.lower() != "y" and konf_kembali.lower() != "n":
+        elif konf_kembali.lower() == "n":
+            continue
+        else:
             print("Masukkan tidak valid.")
             continue
 
@@ -112,11 +126,11 @@ def transfer(index):
 
         if tujuan == "tidak ada":
             print("Rekening tujuan tidak ditemukan.")
-            break
+            continue
 
         if tujuan == index:
             print("Tidak dapat transfer ke rekening sendiri.")
-            break
+            continue
 
         nama_tujuan = data_nasabah[tujuan]["nama"]
         print("Nama pemilik rekening:", nama_tujuan)
@@ -125,17 +139,33 @@ def transfer(index):
 
         if konfirmasi.lower() != "y":
             print("Transfer dibatalkan.")
-            break
+            konf_kembali = input("Kembali ke menu? (y/n): ")
+
+            if konf_kembali.lower() == "y":
+                break
+            elif konf_kembali.lower() == "n":
+                continue
+            else:
+                print("Masukkan tidak valid.")
+                continue
 
         nominal = int(input("Masukkan nominal transfer: Rp "))
 
         if nominal <= 0:
             print("Nominal harus lebih dari 0.")
-            break
+            continue
 
         if nominal > data_nasabah[index]["saldo"]:
             print("Saldo tidak mencukupi.")
-            break
+            konf_kembali = input("Kembali ke menu? (y/n): ")
+                   
+            if konf_kembali.lower() == "y":
+                break
+            elif konf_kembali.lower() == "n":
+                continue
+            else:
+                print("Masukkan tidak valid.")
+                continue
 
         data_nasabah[index]["saldo"] -= nominal
         data_nasabah[tujuan]["saldo"] += nominal
@@ -176,6 +206,7 @@ def login():
 def menu_atm(index):
     clrscr()
     while True:
+        clrscr()
         print("===== SIMULASI MESIN ATM =====")
         print(f"Selamat datang, {data_nasabah[index]['nama']}")
         print(f"No. Rekening: {data_nasabah[index]['no_rek']}")
