@@ -1,3 +1,7 @@
+#267006111085
+#Youhan Nelja Haezer
+#Kelas A
+
 import json
 import random
 import math
