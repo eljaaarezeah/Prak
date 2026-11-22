@@ -1,0 +1,26 @@
+[
+    {
+        "kode": "A01",
+        "nama": "Pensil",
+        "stok": 0,
+        "harga": 3000
+    },
+    {
+        "kode": "A02",
+        "nama": "Pulpen",
+        "stok": 6,
+        "harga": 3500
+    },
+    {
+        "kode": "A03",
+        "nama": "Buku",
+        "stok": 10,
+        "harga": 5000
+    },
+    {
+        "kode": "A04",
+        "nama": "Penghapus",
+        "stok": 1,
+        "harga": 3000
+    }
+]
